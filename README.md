@@ -11,6 +11,7 @@ growth_data <- read.csv("experiment1.csv")
 data_subset1 <- growth_data %>% filter(t<1600) %>% mutate(N_log = log(N))
 
 model1 <- lm(N_log ~ t, data_subset1)
+
 summary(model1)
 
 ## Intercept plotted as 6.903e+00 and gradient estimated at 9.990e-03
