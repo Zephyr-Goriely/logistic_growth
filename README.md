@@ -1,4 +1,4 @@
-#Script to estimate the model parameters using a linear approximation
+# Script to estimate the model parameters using a linear approximation
 
 install.packages("dplyr")
 
@@ -13,7 +13,7 @@ data_subset1 <- growth_data %>% filter(t<1600) %>% mutate(N_log = log(N))
 model1 <- lm(N_log ~ t, data_subset1)
 summary(model1)
 
-# Intercept plotted as 6.903e+00 and gradient estimated at 9.990e-03
+## Intercept plotted as 6.903e+00 and gradient estimated at 9.990e-03
 
 #Case 2. N(t) = K
 
@@ -22,9 +22,9 @@ data_subset2 <- growth_data %>% filter(t>1800)
 model2 <- lm(N ~ 1, data_subset2)
 summary(model2)
 
-# Carrying capacity estimated as 5.903e+10
+## Carrying capacity estimated as 5.903e+10
 
-#Script to plot the logistic growth data
+# Script to plot the logistic growth data
 
 growth_data <- read.csv("experiment1.csv")
 
@@ -51,7 +51,7 @@ ggplot(aes(t,N), data = growth_data) +
   
   scale_y_continuous(trans='log10')
 
-  #Script to plot data and model
+  # Script to plot data and model
 
 growth_data <- read.csv("experiment1.csv")
 
@@ -77,4 +77,4 @@ ggplot(aes(t,N), data = growth_data) +
 
   scale_y_continuous(trans='log10')
 
-#Plotting the model on the data to see how well the model fits the data
+## Plotting the model on the data to see how well the model fits the data
