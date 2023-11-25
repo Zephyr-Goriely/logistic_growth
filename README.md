@@ -6,7 +6,7 @@ library(dplyr)
 
 growth_data <- read.csv("experiment1.csv")
 
-#Case 1. K >> N0, t is small
+### Case 1. K >> N0, t is small
 
 data_subset1 <- growth_data %>% filter(t<1600) %>% mutate(N_log = log(N))
 
