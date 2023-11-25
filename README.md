@@ -67,7 +67,7 @@ logistic_fun <- function(t) {
   return(N) 
 }
 
-## Here I clearly define each of the variables for the model with the estimates
+## Here I clearly define each of the parameters for the model with the estimates
 
 N0 <- 6.903e+00 #initial population size
   
