@@ -67,7 +67,7 @@ logistic_fun <- function(t) {
   return(N) 
 }
 
-## Here I clearly define each of the parameters for the model with the estimates
+### Here I clearly define each of the parameters for the model with the estimates
 
 N0 <- 6.903e+00 #initial population size
   
@@ -83,3 +83,11 @@ ggplot(aes(t,N), data = growth_data) +
   scale_y_continuous(trans='log10')
 
 ## The trend of the model aligns well with the data but finds the starting pouplation size estimate to be too large which causes a lag in the model against the data
+
+# Results
+
+### In this exercise I have estimated the values of starting population size (N0), population growth rate (r), and carrying capacity (K) using our simplifying assumptions of a logistic population model to adjust the trend from the experimental data. The data used in this analysis was taken from the experiment1.csv file that was provided. These esitmations were produced as follows:
+### N0 = 6.903e+00
+### r = 9.990e-03
+### K = 5.903e+10
+### Following, I plotted the model and data together to see if the population growth model fits the data. The results show that the data does align with the trend of the estimated population growth model, however, there is a little bit of delay caused by the difference in the true and estiamted starting population size.
