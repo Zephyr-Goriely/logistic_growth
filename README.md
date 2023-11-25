@@ -5,6 +5,7 @@ install.packages("dplyr")
 
 library(dplyr)
 
+### Loading in the data under the name growth_data
 growth_data <- read.csv("experiment1.csv")
 
 ### Case 1. K >> N0, t is small
