@@ -31,6 +31,7 @@ summary(model2)
 ### The summary from this model estimates the carrying capacity (K) at 5.903e+10
 
 # Script to plot the logistic growth data
+
 ### Loading in the data and installing the ggplot2 package
 growth_data <- read.csv("experiment1.csv")
 
@@ -55,12 +56,18 @@ ggplot(aes(t,N), data = growth_data) +
 
   # Script to plot data and model
 
+### Loading in the data
+
 growth_data <- read.csv("experiment1.csv")
+
+### Here I define the entire logistic population growth model under the values that I have estimated from the earlier analysis. The model is named logistic_fun.
 
 logistic_fun <- function(t) {
   N <- (N0*K*exp(r*t))/(K-N0+N0*exp(r*t))
   return(N) 
 }
+
+## Here I clearly define each of the variables for the model with the estimates
 
 N0 <- 6.903e+00 #initial population size
   
@@ -68,9 +75,11 @@ r <- 9.990e-03 #gradient
   
 K <- 5.903e+10 #carrying capacity
 
+### Next I plot the estimate model with ggplot against the true data to see how well the model fits the data
+
 ggplot(aes(t,N), data = growth_data) +
   geom_function(fun=logistic_fun, colour="red") +
   geom_point()
   scale_y_continuous(trans='log10')
 
-## Plotting the model on the data to see how well the model fits the data
+## The trend of the model aligns well with the data but finds the starting pouplation size estimate to be too large which causes a lag in the model against the data
