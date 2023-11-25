@@ -31,17 +31,21 @@ summary(model2)
 ### The summary from this model estimates the carrying capacity (K) at 5.903e+10
 
 # Script to plot the logistic growth data
-
+### Loading in the data and installing the ggplot2 package
 growth_data <- read.csv("experiment1.csv")
 
 install.packages("ggplot2")
 library(ggplot2)
+
+## This code plots the logistic population growth model
 
 ggplot(aes(t,N), data = growth_data) +
   geom_point() +
   xlab("t") +
   ylab("y") +
   theme_bw()
+
+## This code plots the population growth under a logarithmic transformation
 
 ggplot(aes(t,N), data = growth_data) +
   geom_point() +
