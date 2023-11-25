@@ -8,7 +8,8 @@ library(dplyr)
 ### Loading in the data under the name growth_data
 growth_data <- read.csv("experiment1.csv")
 
-### Case 1. K >> N0, t is small
+## Case 1) K >> N0, t is small
+### In this scenario we are attempting to estimate the y-intercept by setting a large carrying capacity and small time value. From the original population growth model, we can simplify under these limits and are now presented with an exponential model: N(t) = N0e^rt. This allows us to work out an estimate for the starting population size and gradient. This is worked out by running a linear model. I do a logarithmic transformation of the data so that the exponential model can be plotted linearly. 
 
 data_subset1 <- growth_data %>% filter(t<1600) %>% mutate(N_log = log(N))
 
@@ -16,7 +17,7 @@ model1 <- lm(N_log ~ t, data_subset1)
 
 summary(model1)
 
-### Intercept plotted as 6.903e+00 and gradient estimated at 9.990e-03
+### The summary from the linear model estiamtes the y-intercept plotted as 6.903e+00 (starting pouplation size) and gradient estimated at 9.990e-03
 
 #Case 2. N(t) = K
 
