@@ -18,7 +18,7 @@ model1 <- lm(N_log ~ t, data_subset1)
 
 summary(model1)
 
-### The summary from the linear model estiamtes the y-intercept plotted as 6.903e+00 (starting pouplation size) and gradient estimated at 9.990e-03
+### The summary from the linear model estiamtes the y-intercept (N0) plotted as 6.903e+00 and gradient (r) estimated at 9.990e-03
 
 ## Case 2. N(t) = K
 ### At N(t) = K, the population size at time t is equal to the carrying capacity (K). Under this scenario, we estimate K by simplifying our population growth model again such that as t tends to inifinty, the size of the population will equal K: lim N(t) = K. We can follow the same procedure as the last step. By only considering t>1800, we can fit the linear model with the plateau of the population growth model and find the estimate for the carrying capacity.
@@ -28,7 +28,7 @@ data_subset2 <- growth_data %>% filter(t>1800)
 model2 <- lm(N ~ 1, data_subset2)
 summary(model2)
 
-### The summary from this model estimates the carrying capacity at 5.903e+10
+### The summary from this model estimates the carrying capacity (K) at 5.903e+10
 
 # Script to plot the logistic growth data
 
