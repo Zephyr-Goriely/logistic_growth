@@ -97,3 +97,6 @@ Use your estimates of  and  to calculate the population size at  = 4980 min, ass
 
 Assuming that the population grows exponentially, it will follow the equation N(t) = N0e^rt. Therefore, using the estimates from the previous exercise the population size at t = 4980 mins can be calculated as N(4980) = 6.903e+00e^(9.990e-03*4980) = 2.787e22
 
+# Question 3
+
+The file 'Exponential vs Logistic growth' in this repository contains the code I used to plot the logistic model against the exponential to observe the difference in behaviour of these two different models. 
