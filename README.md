@@ -1,6 +1,8 @@
-# Script to estimate the model parameters using a linear approximation
+# Question 1
 
-### Installing and loading in the packages
+## Script to estimate the model parameters using a linear approximation
+
+#### Installing and loading in the packages
 The package used in this method is "dplyr" which allows for the use of the pipe function.
 
 ```{r}
@@ -8,12 +10,12 @@ install.packages("dplyr")
 library(dplyr)
 ```
 
-### Loading in the data under the name growth_data
+#### Loading in the data under the name growth_data
 The dataset 'experiment1' includes the data from an experimental growth culture of _E. coli_ 
 ```{r}
 growth_data <- read.csv("experiment1.csv")
 ```
-## Case 1) K >> N0, t is small
+### Case 1) K >> N0, t is small
 In this scenario I attempt to estimate the starting population size (N0) and population growth rate (r) by setting a large carrying capacity and small time value. From the original population growth model, I can simplify the model under these limits and am now presented with an exponential model: N(t) = N0e^rt. Under a log transformation of the data I can produce a linear model from which we extract our estimates.
 
 Here I set the time bounded under 1600 so that the only values considered from the logarithmic model are linear. This is done by subsetting the data and filtering out all values t>1600. Additionally, this data is mutated such that all values are under a logarithmic transformation so they form a line instead of an exponential curve. This subset is ran through a linear model using the lm() function to extract the key values:
@@ -22,18 +24,18 @@ data_subset1 <- growth_data %>% filter(t<1600) %>% mutate(N_log = log(N))
 model1 <- lm(N_log ~ t, data_subset1)
 summary(model1)
 ```
-### The summary from the linear model estiamtes the y-intercept (N0) plotted as 6.903e+00 and gradient (r) estimated at 9.990e-03
+#### The summary from the linear model estiamtes the y-intercept (N0) plotted as 6.903e+00 and gradient (r) estimated at 9.990e-03
 
-## Case 2. N(t) = K
+### Case 2. N(t) = K
 At N(t) = K, the population size at time t is equal to the carrying capacity (K). Under this scenario, I estimate K by simplifying our population growth model again such that as t tends to inifinty, the size of the population will equal K: lim N(t) = K. I follow the same procedure as the previous step to subset the data. By only considering t>1800, I fit the linear model with the plateau of the population growth model and find the estimate for the carrying capacity:
 ```{r}
 data_subset2 <- growth_data %>% filter(t>1800)
 model2 <- lm(N ~ 1, data_subset2)
 summary(model2)
 ```
-### The summary from this model estimates the carrying capacity (K) at 5.903e+10
+#### The summary from this model estimates the carrying capacity (K) at 5.903e+10
 
-# Script to plot the logistic growth data
+## Script to plot the logistic growth data
 Above I made estimates for the population growth trend using simplifications of the typical population growth equation. Below I plot the true data to observe the trend that actually occurs from this experiment. This is done through the ggplot2 package which loads many functions that allow for efficient graph plotting in R:
 ```{r}
 install.packages("ggplot2")
@@ -56,7 +58,7 @@ ggplot(aes(t,N), data = growth_data) +
   ylab("y") +
   scale_y_continuous(trans='log10')
 ```
-# Script to plot data and model
+## Script to plot data and model
 Now that the data has been plotted and the model esitmates have been achieved. The model can be compared with the data to see how well the model fits the data. If the trends align, the conclusion can be drawn that the experimental _E.coli_ experienced population growth that is well simlulated by a logistic population growth model.
 
 #### First I define the entire logistic population growth model under the values that I have estimated from the earlier analysis. The model is named logistic_fun.
@@ -81,10 +83,17 @@ ggplot(aes(t,N), data = growth_data) +
 ```
 ### The trend of the model aligns well with the data suggesting that the population growth observed follows a typical logistic pattern. However, there is a discrpency in the starting pouplation size estimate as it is larger than the true data. This causes a lag in the initial model growth compared to the true data. 
 
-# Results
+## Results
 
 ### In this exercise I have estimated the values of starting population size (N0), population growth rate (r), and carrying capacity (K) using our simplifying assumptions of a logistic population model to adjust the trend from the experimental data. The data used in this analysis was taken from the experiment1.csv file that was provided. These estimations were produced as follows:
 ### N0 = 6.903e+00
 ### r = 9.990e-03
 ### K = 5.903e+10
 ### Following, I plotted the model and data together to see if a logistic population growth model fits the trend of the data. The results show that the data does align with the trend of the estimated population growth model, however, there is a little bit of delay caused by the difference in the true and estiamted starting population size. From this I can conlcude that the _E. coli_ growth culture follows a logistic growth pattern in the laboratory controlled conditions, the lag in the model was likely the result of error in the simplifying assumptions to gain initial population size estimates. 
+
+# Question 2
+
+Use your estimates of  and  to calculate the population size at  = 4980 min, assuming that the population grows exponentially. How does it compare to the population size predicted under logistic growth?
+
+Assuming that the population grows exponentially, it will follow the equation N(t) = N0e^rt. Therefore, using the estimates from the previous exercise the population size at t = 4980 mins can be calculated as N(4980) = 6.903e+00e^(9.990e-03*4980) = 2.787e22
+
