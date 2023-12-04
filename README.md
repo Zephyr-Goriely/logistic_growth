@@ -16,7 +16,7 @@ growth_data <- read.csv("experiment1.csv")
 ## Case 1) K >> N0, t is small
 In this scenario I attempt to estimate the starting population size (N0) and population growth rate (r) by setting a large carrying capacity and small time value. From the original population growth model, I can simplify the model under these limits and am now presented with an exponential model: N(t) = N0e^rt. Under a log transformation of the data I can produce a linear model from which we extract our estimates.
 
-Here I set the time bounded under 1600 so that the only values considered from the logarithmic model that are linear. This is done by subsetting the data and filtering out all values t>1600. Additionally, this data is mutated such that all values are under a logarithmic transformation so they form a line instead of an exponential curve. This subset is ran through a linear model using the lm() function to extract the key values:
+Here I set the time bounded under 1600 so that the only values considered from the logarithmic model are linear. This is done by subsetting the data and filtering out all values t>1600. Additionally, this data is mutated such that all values are under a logarithmic transformation so they form a line instead of an exponential curve. This subset is ran through a linear model using the lm() function to extract the key values:
 ```{r}
 data_subset1 <- growth_data %>% filter(t<1600) %>% mutate(N_log = log(N))
 model1 <- lm(N_log ~ t, data_subset1)
@@ -34,22 +34,21 @@ summary(model2)
 ### The summary from this model estimates the carrying capacity (K) at 5.903e+10
 
 # Script to plot the logistic growth data
-
-### Loading in the data and installing the ggplot2 package
-The ggplot2 package introduces many functions that allow for efficient plotting of graphs which is useful for this exercise.
+Above I made estimates for the population growth trend using simplifications of the typical population growth equation. Below I plot the true data to observe the trend that actually occurs from this experiment. This is done through the ggplot2 package which loads many functions that allow for efficient graph plotting in R:
 ```{r}
 install.packages("ggplot2")
 library(ggplot2)
 ```
-## This code plots the logistic population growth model
+#### Next the logistic population growth model can be plotted using the growth data:
 ```{r}
 ggplot(aes(t,N), data = growth_data) +
   geom_point() +
-  xlab("t") +
-  ylab("y") +
+  xlab("time (min)") +
+  ylab("N #Cells") +
   theme_bw()
 ```
-## This code plots the population growth under a logarithmic transformation
+While this figure is useful in showing the general trend of the population growth. In order to compare it to the estimated model, it may be more useful to transform the model under a logarithimic transformation
+#### This code plots the population growth under a logarithmic transformation
 ```{r}
 ggplot(aes(t,N), data = growth_data) +
   geom_point() +
@@ -57,38 +56,35 @@ ggplot(aes(t,N), data = growth_data) +
   ylab("y") +
   scale_y_continuous(trans='log10')
 ```
-  # Script to plot data and model
+# Script to plot data and model
+Now that the data has been plotted and the model esitmates have been achieved. The model can be compared with the data to see how well the model fits the data. If the trends align, the conclusion can be drawn that the experimental _E.coli_ experienced population growth that is well simlulated by a logistic population growth model.
 
-### Loading in the data
-```{r}
-growth_data <- read.csv("experiment1.csv")
-```
-### Here I define the entire logistic population growth model under the values that I have estimated from the earlier analysis. The model is named logistic_fun.
+#### First I define the entire logistic population growth model under the values that I have estimated from the earlier analysis. The model is named logistic_fun.
 ```{r}
 logistic_fun <- function(t) {
   N <- (N0*K*exp(r*t))/(K-N0+N0*exp(r*t))
   return(N) 
 }
 ```
-### Here I clearly define each of the parameters for the model with the estimates
+The values of the model estimates are set below:
 ```{r}
 N0 <- 6.903e+00 #initial population size 
 r <- 9.990e-03 #gradient (population growth rate) 
 K <- 5.903e+10 #carrying capacity
 ```
-### Next I plot the estimate model with ggplot against the true data to see how well the model fits the data
+#### Next I plot the estimate model with ggplot against the true data on the same graph to see how well the population growth model fits the data:
 ```{r}
 ggplot(aes(t,N), data = growth_data) +
   geom_function(fun=logistic_fun, colour="red") +
   geom_point()
   scale_y_continuous(trans='log10')
 ```
-## The trend of the model aligns well with the data but finds the starting pouplation size estimate to be too large which causes a lag in the model against the data
+### The trend of the model aligns well with the data suggesting that the population growth observed follows a typical logistic pattern. However, there is a discrpency in the starting pouplation size estimate as it is larger than the true data. This causes a lag in the initial model growth compared to the true data. 
 
 # Results
 
-### In this exercise I have estimated the values of starting population size (N0), population growth rate (r), and carrying capacity (K) using our simplifying assumptions of a logistic population model to adjust the trend from the experimental data. The data used in this analysis was taken from the experiment1.csv file that was provided. These esitmations were produced as follows:
+### In this exercise I have estimated the values of starting population size (N0), population growth rate (r), and carrying capacity (K) using our simplifying assumptions of a logistic population model to adjust the trend from the experimental data. The data used in this analysis was taken from the experiment1.csv file that was provided. These estimations were produced as follows:
 ### N0 = 6.903e+00
 ### r = 9.990e-03
 ### K = 5.903e+10
-### Following, I plotted the model and data together to see if the population growth model fits the data. The results show that the data does align with the trend of the estimated population growth model, however, there is a little bit of delay caused by the difference in the true and estiamted starting population size.
+### Following, I plotted the model and data together to see if a logistic population growth model fits the trend of the data. The results show that the data does align with the trend of the estimated population growth model, however, there is a little bit of delay caused by the difference in the true and estiamted starting population size. From this I can conlcude that the _E. coli_ growth culture follows a logistic growth pattern in the laboratory controlled conditions, the lag in the model was likely the result of error in the simplifying assumptions to gain initial population size estimates. 
