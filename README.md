@@ -99,4 +99,6 @@ Assuming that the population grows exponentially, it will follow the equation N(
 
 # Question 3
 
-The file 'Exponential vs Logistic growth' in this repository contains the code I used to plot the logistic model against the exponential to observe the difference in behaviour of these two different models. 
+The file 'Exponential vs Logistic growth' in this repository contains the code I used to plot the logistic model against the exponential to observe the difference in behaviour of these two different models.
+
+The produced graph is visible in the 'Exponential vs Logistic growth.png' in the repository
