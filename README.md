@@ -1,6 +1,7 @@
 # Script to estimate the model parameters using a linear approximation
 
 ### Installing and loading in the packages
+The package used in this method is "dplyr" which allows for the use of the pipe function.
 
 ```{r}
 install.packages("dplyr")
@@ -8,12 +9,14 @@ library(dplyr)
 ```
 
 ### Loading in the data under the name growth_data
+The dataset 'experiment1' includes the data from an experimental growth culture of _E. coli_ 
 ```{r}
 growth_data <- read.csv("experiment1.csv")
 ```
 ## Case 1) K >> N0, t is small
+In this scenario I attempt to estimate the starting population size (N0) and population growth rate (r) by setting a large carrying capacity and small time value. From the original population growth model, I can simplify the model under these limits and am now presented with an exponential model: N(t) = N0e^rt. Under a log transformation of the data I can produce a linear model from which we extract our estimates.
 
-### In this scenario we are attempting to estimate the starting population size and gradient by setting a large carrying capacity and small time value. From the original population growth model, we can simplify under these limits and are now presented with an exponential model: N(t) = N0e^rt. Under a log transformation of the data we can produce a linear model from which we extract our estimates. Here I set the time bounded under 1600 so that the only values considered from the logarithmic model that are linear.
+Here I set the time bounded under 1600 so that the only values considered from the logarithmic model that are linear. This is done by subsetting the data and filtering out all values t>1600. Additionally, this data is mutated such that all values are under a logarithmic transformation so they form a line instead of an exponential curve. This subset is ran through a linear model using the lm() function to extract the key values:
 ```{r}
 data_subset1 <- growth_data %>% filter(t<1600) %>% mutate(N_log = log(N))
 model1 <- lm(N_log ~ t, data_subset1)
@@ -22,7 +25,7 @@ summary(model1)
 ### The summary from the linear model estiamtes the y-intercept (N0) plotted as 6.903e+00 and gradient (r) estimated at 9.990e-03
 
 ## Case 2. N(t) = K
-### At N(t) = K, the population size at time t is equal to the carrying capacity (K). Under this scenario, we estimate K by simplifying our population growth model again such that as t tends to inifinty, the size of the population will equal K: lim N(t) = K. We can follow the same procedure as the last step. By only considering t>1800, we can fit the linear model with the plateau of the population growth model and find the estimate for the carrying capacity.
+At N(t) = K, the population size at time t is equal to the carrying capacity (K). Under this scenario, I estimate K by simplifying our population growth model again such that as t tends to inifinty, the size of the population will equal K: lim N(t) = K. I follow the same procedure as the previous step to subset the data. By only considering t>1800, I fit the linear model with the plateau of the population growth model and find the estimate for the carrying capacity:
 ```{r}
 data_subset2 <- growth_data %>% filter(t>1800)
 model2 <- lm(N ~ 1, data_subset2)
@@ -33,9 +36,8 @@ summary(model2)
 # Script to plot the logistic growth data
 
 ### Loading in the data and installing the ggplot2 package
+The ggplot2 package introduces many functions that allow for efficient plotting of graphs which is useful for this exercise.
 ```{r}
-growth_data <- read.csv("experiment1.csv")
-
 install.packages("ggplot2")
 library(ggplot2)
 ```
