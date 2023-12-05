@@ -105,5 +105,5 @@ The population size predicted under logistic growth at t = 4980 mins will equal 
 
 The R file 'Exponential vs Logistic growth' in this repository contains the code I used to plot the logistic model against the exponential to observe the difference in behaviour of these two models. This graph is shown below
 
-[Graph link](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/8114de33-5ce5-4b25-8236-72e39be4ecf6)
+(https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/8114de33-5ce5-4b25-8236-72e39be4ecf6)
 
