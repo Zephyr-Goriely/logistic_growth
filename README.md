@@ -24,6 +24,8 @@ data_subset1 <- growth_data %>% filter(t<1600) %>% mutate(N_log = log(N))
 model1 <- lm(N_log ~ t, data_subset1)
 summary(model1)
 ```
+<img width="469" alt="Case_1_linear_model_summary" src="https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/c3adb1b0-bfc8-4d36-ac7d-a34621b5f304">
+
 #### The summary from the linear model estiamtes the y-intercept (N0) plotted as 6.903e+00 and gradient (r) estimated at 9.990e-03
 
 ### Case 2. N(t) = K
@@ -33,6 +35,8 @@ data_subset2 <- growth_data %>% filter(t>1800)
 model2 <- lm(N ~ 1, data_subset2)
 summary(model2)
 ```
+<img width="458" alt="Case_2_linear_model_summary" src="https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/230711a8-3702-4846-b556-59afa6fab23d">
+
 #### The summary from this model estimates the carrying capacity (K) at 5.903e+10
 
 ## Script to plot the logistic growth data
@@ -49,6 +53,8 @@ ggplot(aes(t,N), data = growth_data) +
   ylab("N #Cells") +
   theme_bw()
 ```
+![logistic_growth_data](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/3eac969e-3730-4b8e-90aa-6d06fd7f3375)
+
 While this figure is useful in showing the general trend of the population growth. In order to compare it to the estimated model, it may be more useful to transform the model under a logarithimic transformation
 #### This code plots the population growth under a logarithmic transformation
 ```{r}
@@ -58,6 +64,8 @@ ggplot(aes(t,N), data = growth_data) +
   ylab("y") +
   scale_y_continuous(trans='log10')
 ```
+![logarithmic_growth_data](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/e6c2ff7e-4c70-4571-9ece-577dbd249359)
+
 ## Script to plot data and model
 Now that the data has been plotted and the model esitmates have been achieved. The model can be compared with the data to see how well the model fits the data. If the trends align, the conclusion can be drawn that the experimental _E.coli_ experienced population growth that is well simlulated by a logistic population growth model.
 
@@ -81,6 +89,8 @@ ggplot(aes(t,N), data = growth_data) +
   geom_point()
   scale_y_continuous(trans='log10')
 ```
+![model_comparison](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/667b415a-9b3f-4458-86e2-88f79333f52c)
+
 #### The trend of the model aligns well with the data suggesting that the population growth observed follows a typical logistic pattern. However, there is a discrpency in the starting pouplation size estimate as it is larger than the true data. This causes a lag in the initial model growth compared to the true data. 
 
 ## Results
