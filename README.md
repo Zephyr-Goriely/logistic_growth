@@ -81,7 +81,7 @@ ggplot(aes(t,N), data = growth_data) +
   geom_point()
   scale_y_continuous(trans='log10')
 ```
-### The trend of the model aligns well with the data suggesting that the population growth observed follows a typical logistic pattern. However, there is a discrpency in the starting pouplation size estimate as it is larger than the true data. This causes a lag in the initial model growth compared to the true data. 
+#### The trend of the model aligns well with the data suggesting that the population growth observed follows a typical logistic pattern. However, there is a discrpency in the starting pouplation size estimate as it is larger than the true data. This causes a lag in the initial model growth compared to the true data. 
 
 ## Results
 
@@ -93,9 +93,11 @@ ggplot(aes(t,N), data = growth_data) +
 
 # Question 2
 
-Assuming that the population grows exponentially, it will follow the equation N(t) = N0e^rt. Therefore, using the estimates from the previous exercise, the population size at t = 4980 mins can be calculated as N(4980) = 6.903e+00e^(9.990e-03*4980) = 2.787e+22
+Assuming that the population grows exponentially, it will follow the equation N(t) = N0e^rt. Therefore, using the estimates from the previous exercise, the population size at t = 4980 mins can be calculated as N(4980) = 6.903e+00e^(9.990e-03*4980)
+### = 2.787e+22
 
-The population size predicted under logistic growth at t = 4980 mins will equal the carrying capacity as the population growth will have plateaued far before this time. Therefore, under logsitic growth, the popoulation size at t = 4980 mins would equal K = 5.903e+10
+The population size predicted under logistic growth at t = 4980 mins will equal the carrying capacity as the population growth will have plateaued far before this time. Therefore, under logsitic growth, the popoulation size at t = 4980 mins would equal K
+### = 5.903e+10
 
 2.787e+22 >> 5.983e+10. As observed, under an assumption of exponential growth, the population size would be far greater than under logistic growth. This is expected as a logistic model is regulated by density dependence which prevents the population size from exceeding a certain point. The model creates density dependence through the use of the carrying capcity variable, which determines a maximum population size that can be maintained in this experiment. However, the exponential model does not have this regulation and is not limited by any factors, this means that the population would follow an exponential trend and grow infinitely. As such, the population under an exponential would exceed the population under a logistic model once the density dependence starts to plateau the curve of logsitic growth.
 
@@ -107,3 +109,6 @@ The produced graph is visible in the 'Exponential vs Logistic growth.png' in the
 
 [Graph link](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/8114de33-5ce5-4b25-8236-72e39be4ecf6)
 
+# Question 4
+
+In executing this code, two graphs are produced which seem to demonstrate the path of random motion from time 1 to 500. This motion is plotted on a two dimensional field which is represented by the x and y axes of the graph. Despite the functions and graphing code being the same, with different randomised walks in each dataset, the two graphs show individually unique and random motion. The legend allows for interpretation of where the path starts and finishes. This is important as without the colour spectrum representing the chronological motion, overlaps in the path could lead to confusion. 
