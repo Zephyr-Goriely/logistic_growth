@@ -85,23 +85,25 @@ ggplot(aes(t,N), data = growth_data) +
 
 ## Results
 
-### In this exercise I have estimated the values of starting population size (N0), population growth rate (r), and carrying capacity (K) using our simplifying assumptions of a logistic population model to adjust the trend from the experimental data. The data used in this analysis was taken from the experiment1.csv file that was provided. These estimations were produced as follows:
+#### In this exercise I have estimated the values of starting population size (N0), population growth rate (r), and carrying capacity (K) using our simplifying assumptions of a logistic population model to adjust the trend from the experimental data. The data used in this analysis was taken from the experiment1.csv file that was provided. These estimations were produced as follows:
 ### N0 = 6.903e+00
 ### r = 9.990e-03
 ### K = 5.903e+10
-### Following, I plotted the model and data together to see if a logistic population growth model fits the trend of the data. The results show that the data does align with the trend of the estimated population growth model, however, there is a little bit of delay caused by the difference in the true and estiamted starting population size. From this I can conlcude that the _E. coli_ growth culture follows a logistic growth pattern in the laboratory controlled conditions, the lag in the model was likely the result of error in the simplifying assumptions to gain initial population size estimates. 
+#### Following, I plotted the model and data together to see if a logistic population growth model fits the trend of the data. The results show that the data does align with the trend of the estimated population growth model, however, there is a little bit of delay caused by the difference in the true and estiamted starting population size. From this I can conlcude that the _E. coli_ growth culture follows a logistic growth pattern in the laboratory controlled conditions, the lag in the model was likely the result of error in the simplifying assumptions to gain initial population size estimates. 
 
 # Question 2
 
-Use your estimates of  and  to calculate the population size at  = 4980 min, assuming that the population grows exponentially. How does it compare to the population size predicted under logistic growth?
+Assuming that the population grows exponentially, it will follow the equation N(t) = N0e^rt. Therefore, using the estimates from the previous exercise, the population size at t = 4980 mins can be calculated as N(4980) = 6.903e+00e^(9.990e-03*4980) = 2.787e+22
 
-Assuming that the population grows exponentially, it will follow the equation N(t) = N0e^rt. Therefore, using the estimates from the previous exercise the population size at t = 4980 mins can be calculated as N(4980) = 6.903e+00e^(9.990e-03*4980) = 2.787e22
+The population size predicted under logistic growth at t = 4980 mins will equal the carrying capacity as the population growth will have plateaued far before this time. Therefore, under logsitic growth, the popoulation size at t = 4980 mins would equal K = 5.903e+10
+
+2.787e+22 >> 5.983e+10. As observed, under an assumption of exponential growth, the population size would be far greater than under logistic growth. This is expected as a logistic model is regulated by density dependence which prevents the population size from exceeding a certain point. The model creates density dependence through the use of the carrying capcity variable, which determines a maximum population size that can be maintained in this experiment. However, the exponential model does not have this regulation and is not limited by any factors, this means that the population would follow an exponential trend and grow infinitely. As such, the population under an exponential would exceed the population under a logistic model once the density dependence starts to plateau the curve of logsitic growth.
 
 # Question 3
 
-The file 'Exponential vs Logistic growth' in this repository contains the code I used to plot the logistic model against the exponential to observe the difference in behaviour of these two different models.
+The R file 'Exponential vs Logistic growth' in this repository contains the code I used to plot the logistic model against the exponential to observe the difference in behaviour of these two models.
 
-The produced graph is visible in the 'Exponential vs Logistic growth.png' in the repository
+The produced graph is visible in the 'Exponential vs Logistic growth.png' in the repository, otherwise it can be accessed through the link below:
 
-[image](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/8114de33-5ce5-4b25-8236-72e39be4ecf6)
+[Graph link](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/8114de33-5ce5-4b25-8236-72e39be4ecf6)
 
