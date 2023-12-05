@@ -103,5 +103,5 @@ The file 'Exponential vs Logistic growth' in this repository contains the code I
 
 The produced graph is visible in the 'Exponential vs Logistic growth.png' in the repository
 
-https://github.com/Zephyr-Goriely/logistic_growth/blob/main/Exponential%20vs%20Logistic%20growth.png?raw=true![image](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/8114de33-5ce5-4b25-8236-72e39be4ecf6)
+[image](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/8114de33-5ce5-4b25-8236-72e39be4ecf6)
 
