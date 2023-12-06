@@ -28,8 +28,8 @@ K <- 5.903e+10 #carrying capacity
 # Code to plot the two functions against each other such that the trend is visible
 ggplot(data = growth_data, aes(t,N)) +
   geom_function(fun=logistic_fun, linetype = "solid", aes(color = "Logistic")) +
-  geom_function(fun=exponential_fun, linetype = "dashed", aes(color = "Exponential")) +
-  xlim(1250,2500) +
+  geom_function(fun=exponential_fun, linetype = "solid", aes(color = "Exponential")) +
+  xlim(1000,2750) +
   ylim(0, 6e+10) +
   labs(title = "Exponential vs Logistic growth",
        x = "Time",
