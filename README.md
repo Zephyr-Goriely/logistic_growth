@@ -24,7 +24,7 @@ data_subset1 <- growth_data %>% filter(t<1600) %>% mutate(N_log = log(N))
 model1 <- lm(N_log ~ t, data_subset1)
 summary(model1)
 ```
-<img width="469" alt="Case_1_linear_model_summary" src="https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/c3adb1b0-bfc8-4d36-ac7d-a34621b5f304">
+<img width="469" alt="Case_1_linear_model_summary" src="https://github.com/hiddenuser3/logistic_growth/assets/150150268/b8669e5f-9d90-4918-87c5-16595ce3e457">
 
 (intercept = N_log)
 
@@ -37,7 +37,8 @@ data_subset2 <- growth_data %>% filter(t>1800)
 model2 <- lm(N ~ 1, data_subset2)
 summary(model2)
 ```
-<img width="458" alt="Case_2_linear_model_summary" src="https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/230711a8-3702-4846-b556-59afa6fab23d">
+<img width="458" alt="Case_2_linear_model_summary" src="https://github.com/hiddenuser3/logistic_growth/assets/150150268/8167e265-d6e2-42e2-bc87-b65fc6e464d1">
+
 
 #### The summary from this model estimates the carrying capacity (K) at 5.903e+10
 
