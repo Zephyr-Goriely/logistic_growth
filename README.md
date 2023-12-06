@@ -62,7 +62,7 @@ ggplot(aes(t,N), data = growth_data) +
   geom_point() +
   xlab("t") +
   ylab("y") +
-  scale_y_continuous(trans='log10')
+  scale_y_continuous(trans='log10') # This line log transforms the data
 ```
 ![logarithmic_growth_data](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/e6c2ff7e-4c70-4571-9ece-577dbd249359)
 
