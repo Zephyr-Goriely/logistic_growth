@@ -26,7 +26,7 @@ summary(model1)
 ```
 <img width="469" alt="Case_1_linear_model_summary" src="https://github.com/hiddenuser3/logistic_growth/assets/150150268/b8669e5f-9d90-4918-87c5-16595ce3e457">
 
-(intercept = N_log)
+(Intercept = N_log: exp(6.903e+00) = N0)
 
 #### The summary from the linear model estimates the initial population size (H0) as 995.256 and population growth rate (r) estimated at 9.990e-03
 
