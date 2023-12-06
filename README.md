@@ -92,7 +92,10 @@ ggplot(aes(t,N), data = growth_data) +
   scale_y_continuous(trans='log10')
 ```
 
-#### The trend of the model aligns well with the data suggesting that the population growth observed follows a typical logistic pattern.
+![log_model](https://github.com/hiddenuser3/logistic_growth/assets/150150268/9630236f-767f-494d-bc78-7dfdbf200fa3)
+
+
+#### The trend of the model aligns well with the data suggesting that the population growth observed follows a typical logistic pattern. Although the shown trend is a logarithmic trend, this is due to the transformation of the data and the relationship is in fact logistic.
 
 ## Results
 
@@ -100,7 +103,7 @@ ggplot(aes(t,N), data = growth_data) +
 ### N0 = 995.256
 ### r = 9.990e-03
 ### K = 5.903e+10
-#### Following, I plotted the model and data together to see if a logistic population growth model fits the trend of the data. The results show that the data does align with the trend of the estimated population growth model. From this I can conlcude that the _E. coli_ growth culture follows a logistic growth pattern in the laboratory controlled conditions.
+#### Following, I plotted the model and data together to see if a logistic population growth model fits the trend of the data. The results show that the data does align with the trend of the estimated population growth model. From this I can conlcude that the _E. coli_ growth culture follows a typical logistic growth pattern in the laboratory controlled conditions.
 
 # Question 2
 
@@ -110,7 +113,7 @@ Assuming that the population grows exponentially, it will follow the equation N(
 The population size predicted under logistic growth at t = 4980 mins will equal the carrying capacity as the population growth will have plateaued far before this time. Therefore, under logsitic growth, the popoulation size at t = 4980 mins would equal K
 ### = 5.903e+10
 
-2.787e+22 >> 5.983e+10. As observed, under an assumption of exponential growth, the population size would be far greater than under logistic growth. This is expected as a logistic model is regulated by density dependence which prevents the population size from exceeding a certain point. The model creates density dependence through the use of the carrying capcity variable, which determines a maximum population size that can be maintained in this experiment. However, the exponential model does not have this regulation and is not limited by any factors, this means that the population would follow an exponential trend and grow infinitely. As such, the population under an exponential would exceed the population under a logistic model once the density dependence starts to plateau the curve of logsitic growth.
+4.02e+24 >> 5.983e+10. As observed, under an assumption of exponential growth, the population size would be far greater than under logistic growth. This is expected as a logistic model is regulated by density dependence which prevents the population size from exceeding a certain point. The model creates density dependence through the use of the carrying capcity variable, which determines a maximum population size that can be maintained in this experiment. However, the exponential model does not have this regulation and is not limited by any factors, this means that the population would follow an exponential trend and grow infinitely. As such, the population under an exponential would exceed the population under a logistic model once the density dependence starts to plateau the curve of logsitic growth.
 
 # Question 3
 
