@@ -56,7 +56,8 @@ ggplot(aes(t,N), data = growth_data) +
   ylab("N #Cells") +
   theme_bw()
 ```
-![logistic_growth_data](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/3eac969e-3730-4b8e-90aa-6d06fd7f3375)
+![logistic_growth_data](https://github.com/hiddenuser3/logistic_growth/assets/150150268/4e31c6bd-c1be-442b-b15c-5a0e480a25cb)
+
 
 While this figure is useful in showing the general trend of the population growth. In order to compare it to the estimated model, it may be more useful to transform the model under a logarithimic transformation
 #### This code plots the population growth under a logarithmic transformation
@@ -67,7 +68,9 @@ ggplot(aes(t,N), data = growth_data) +
   ylab("y") +
   scale_y_continuous(trans='log10') # This line log transforms the data
 ```
-![logarithmic_growth_data](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/e6c2ff7e-4c70-4571-9ece-577dbd249359)
+
+![logarithmic_growth_data](https://github.com/hiddenuser3/logistic_growth/assets/150150268/d2c3eca4-d701-41fa-94ed-124637212e3d)
+
 
 ## Script to plot data and model
 Now that the data has been plotted and the model esitmates have been achieved. The model can be compared with the data to see how well the model fits the data. If the trends align, the conclusion can be drawn that the experimental _E.coli_ experienced population growth that is well simlulated by a logistic population growth model.
