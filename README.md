@@ -26,7 +26,9 @@ summary(model1)
 ```
 <img width="469" alt="Case_1_linear_model_summary" src="https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/c3adb1b0-bfc8-4d36-ac7d-a34621b5f304">
 
-#### The summary from the linear model estiamtes the y-intercept (N0) plotted as 6.903e+00 and gradient (r) estimated at 9.990e-03
+(intercept = N_log)
+
+#### The summary from the linear model estimates the initial population size (H0) as 995.256 and population growth rate (r) estimated at 9.990e-03
 
 ### Case 2. N(t) = K
 At N(t) = K, the population size at time t is equal to the carrying capacity (K). Under this scenario, I estimate K by simplifying our population growth model again such that as t tends to inifinty, the size of the population will equal K: lim N(t) = K. I follow the same procedure as the previous step to subset the data. By only considering t>1800, I fit the linear model with the plateau of the population growth model and find the estimate for the carrying capacity:
@@ -78,7 +80,7 @@ logistic_fun <- function(t) {
 ```
 The values of the model estimates are set below:
 ```{r}
-N0 <- 6.903e+00 #initial population size 
+N0 <- 995.256 #initial population size 
 r <- 9.990e-03 #gradient (population growth rate) 
 K <- 5.903e+10 #carrying capacity
 ```
@@ -89,22 +91,21 @@ ggplot(aes(t,N), data = growth_data) +
   geom_point()
   scale_y_continuous(trans='log10')
 ```
-![model_comparison](https://github.com/Zephyr-Goriely/logistic_growth/assets/150150268/667b415a-9b3f-4458-86e2-88f79333f52c)
 
-#### The trend of the model aligns well with the data suggesting that the population growth observed follows a typical logistic pattern. However, there is a discrpency in the starting pouplation size estimate as it is larger than the true data. This causes a lag in the initial model growth compared to the true data. 
+#### The trend of the model aligns well with the data suggesting that the population growth observed follows a typical logistic pattern.
 
 ## Results
 
 #### In this exercise I have estimated the values of starting population size (N0), population growth rate (r), and carrying capacity (K) using our simplifying assumptions of a logistic population model to adjust the trend from the experimental data. The data used in this analysis was taken from the experiment1.csv file that was provided. These estimations were produced as follows:
-### N0 = 6.903e+00
+### N0 = 995.256
 ### r = 9.990e-03
 ### K = 5.903e+10
-#### Following, I plotted the model and data together to see if a logistic population growth model fits the trend of the data. The results show that the data does align with the trend of the estimated population growth model, however, there is a little bit of delay caused by the difference in the true and estiamted starting population size. From this I can conlcude that the _E. coli_ growth culture follows a logistic growth pattern in the laboratory controlled conditions, the lag in the model was likely the result of error in the simplifying assumptions to gain initial population size estimates. 
+#### Following, I plotted the model and data together to see if a logistic population growth model fits the trend of the data. The results show that the data does align with the trend of the estimated population growth model. From this I can conlcude that the _E. coli_ growth culture follows a logistic growth pattern in the laboratory controlled conditions.
 
 # Question 2
 
-Assuming that the population grows exponentially, it will follow the equation N(t) = N0e^rt. Therefore, using the estimates from the previous exercise, the population size at t = 4980 mins can be calculated as N(4980) = 6.903e+00e^(9.990e-03*4980)
-### = 2.787e+22
+Assuming that the population grows exponentially, it will follow the equation N(t) = N0e^rt. Therefore, using the estimates from the previous exercise, the population size at t = 4980 mins can be calculated as N(4980) = 995.256*e^(9.990e-03*4980)
+### = 4.02e+24
 
 The population size predicted under logistic growth at t = 4980 mins will equal the carrying capacity as the population growth will have plateaued far before this time. Therefore, under logsitic growth, the popoulation size at t = 4980 mins would equal K
 ### = 5.903e+10
