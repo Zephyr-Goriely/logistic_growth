@@ -40,7 +40,7 @@ summary(model2)
 <img width="458" alt="Case_2_linear_model_summary" src="https://github.com/hiddenuser3/logistic_growth/assets/150150268/8167e265-d6e2-42e2-bc87-b65fc6e464d1">
 
 
-#### The summary from this model estimates the carrying capacity (K) at 5.903e+10
+#### The summary from this model estimates the carrying capacity (K) at 5.979e+10
 
 ## Script to plot the logistic growth data
 Above I made estimates for the population growth trend using simplifications of the typical population growth equation. Below I plot the true data to observe the trend that actually occurs from this experiment. This is done through the ggplot2 package which loads many functions that allow for efficient graph plotting in R:
@@ -86,7 +86,7 @@ The values of the model estimates are set below:
 ```{r}
 N0 <- 995.256 #initial population size 
 r <- 9.990e-03 #gradient (population growth rate) 
-K <- 5.903e+10 #carrying capacity
+K <- 5.979e+10 #carrying capacity
 ```
 #### Next I plot the estimate model with ggplot against the true data on the same graph to see how well the population growth model fits the data:
 ```{r}
@@ -106,7 +106,7 @@ ggplot(aes(t,N), data = growth_data) +
 #### In this exercise I have estimated the values of starting population size (N0), population growth rate (r), and carrying capacity (K) using our simplifying assumptions of a logistic population model to adjust the trend from the experimental data. The data used in this analysis was taken from the experiment1.csv file that was provided. These estimations were produced as follows:
 ### N0 = 995.256
 ### r = 9.990e-03
-### K = 5.903e+10
+### K = 5.979e+10
 #### Following, I plotted the model and data together to see if a logistic population growth model fits the trend of the data. The results show that the data does align with the trend of the estimated population growth model. From this I can conlcude that the _E. coli_ growth culture follows a typical logistic growth pattern in the laboratory controlled conditions.
 
 # Question 2
@@ -115,9 +115,9 @@ Assuming that the population grows exponentially, it will follow the equation N(
 ### = 4.02e+24
 
 The population size predicted under logistic growth at t = 4980 mins will equal the carrying capacity as the population growth will have plateaued far before this time. Therefore, under logsitic growth, the popoulation size at t = 4980 mins would equal K
-### = 5.903e+10
+### = 5.979e+10
 
-4.02e+24 >> 5.983e+10. As observed, under an assumption of exponential growth, the population size would be far greater than under logistic growth. This is expected as a logistic model is regulated by density dependence which prevents the population size from exceeding a certain point. The model creates density dependence through the use of the carrying capcity variable, which determines a maximum population size that can be maintained in this experiment. However, the exponential model does not have this regulation and is not limited by any factors, this means that the population would follow an exponential trend and grow infinitely. As such, the population under an exponential would exceed the population under a logistic model once the density dependence starts to plateau the curve of logsitic growth.
+4.02e+24 >> 5.979e+10. As observed, under an assumption of exponential growth, the population size would be far greater than under logistic growth. This is expected as a logistic model is regulated by density dependence which prevents the population size from exceeding a certain point. The model creates density dependence through the use of the carrying capcity variable, which determines a maximum population size that can be maintained in this experiment. However, the exponential model does not have this regulation and is not limited by any factors, this means that the population would follow an exponential trend and grow infinitely. As such, the population under an exponential would exceed the population under a logistic model once the density dependence starts to plateau the curve of logsitic growth.
 
 # Question 3
 
