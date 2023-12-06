@@ -56,7 +56,8 @@ ggplot(aes(t,N), data = growth_data) +
   ylab("N #Cells") +
   theme_bw()
 ```
-![logistic_growth_data](https://github.com/hiddenuser3/logistic_growth/assets/150150268/4e31c6bd-c1be-442b-b15c-5a0e480a25cb)
+![logistic_growth_data-2](https://github.com/hiddenuser3/logistic_growth/assets/150150268/04557a02-9d06-49d0-9445-12ba9976ed25)
+
 
 
 While this figure is useful in showing the general trend of the population growth. In order to compare it to the estimated model, it may be more useful to transform the model under a logarithimic transformation
